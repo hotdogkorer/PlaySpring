@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  	<!--  
+  	 typeAliases 생략가능(패키지 경로 긴 경우 DTO 클래스의 이름을 별칭을 부여 할때 사용 
+  	 typeAliases태그를 동록 ->별칭을 등록 (패키지명이 긴 자바 빈즈 파일 (DTO}
+  	 type=>"패키명 클래스명 (DTO) alias="부여할 별칭명" 
+  	 
+  	-->
+  	<typeAliases>
+  	 <!--   <typeAlias type="action.BoardCommand" alias="board"/> -->
+  	 <typeAlias type="com.play.main.dao.MainDTO" alias="MainDTO"/>
+  	  <typeAlias type="com.play.member.dao.MemberDTO" alias="MemberDTO"/> 
+  	  <typeAlias type="com.play.perform.dao.ProductDTO" alias="ProductDTO"/>
+  	   <typeAlias type="com.play.perform.dao.FileInfoDTO" alias="FileInfoDTO"/>
+  	  <typeAlias type="com.play.reser.dao.ReservaDTO" alias="ReservaDTO"/>
+       
+		<typeAlias type="com.play.comm.CommDTO" alias="CommDTO" />
+  	 <typeAlias type="com.play.notice.NoticeDTO" alias="NoticeDTO" />
+  	 <typeAlias type="com.play.lend.Month11DTO" alias="Month11DTO" />
+  	</typeAliases>
+  	
+  	<!-- <typeAliases>
+  	   <typeAlias type="action.BoardCommand" alias="board"/>
+  	</typeAliases> -->
+  	<!--mappers (불려올 테이블의 정보를 가진 xml 파일 갯수만큼 지정할때 사용   -->
+	<mappers>
+	<mapper resource="com/play/main/dao/main.xml"/>
+     <mapper resource="com/play/member/dao/member.xml"/> 
+      <mapper resource="com/play/perform/dao/perform.xml"/> 
+      <mapper resource="com/play/reser/dao/reserva.xml"/>
+     <mapper resource="com/play/comm/comm.xml" />
+	<mapper resource="com/play/notice/notice.xml" />
+	<mapper resource="com/play/lend/lend.xml" />
+	
+	</mappers>
+</configuration>

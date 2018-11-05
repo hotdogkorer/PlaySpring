@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="comm">
+<!-- 메인(리스트)페이지 -->
+ <select id="commMain_count" resultType="int">select count(*) from board</select>
+ 
+ <select id="commMain_nosearch" parameterType="CommDTO" resultType="CommDTO">
+ select * from board order by ref desc,re_step asc limit #{start},#{end}
+ </select>
+ 
+ <select id="commMain_search" parameterType="CommDTO" resultType="CommDTO">
+ select * from board
+ <where>
+ <if test="search=='subject_content'">
+ subject like CONCAT('%',#{searchtext},'%') or content like CONCAT('%',#{searchtext},'%')
+ </if>
+ <if test="search=='subject' || search=='writer'">
+${search} like CONCAT('%',#{searchtext},'%')
+ </if>
+ </where>
+ order by ref desc,re_step asc limit #{start},#{end}
+ </select>
+<!-- /메인(리스트)페이지 -->
+ 
+<!-- 인서트 -->
+<select id="maxNum" resultType="int">
+select max(num) from board
+</select>
+
+<update id="refUpdate" parameterType="CommDTO">
+update board set re_step=re_step+1 where ref=#{ref} and re_step > #{re_step}
+</update>
+
+<insert id="commInsert" parameterType="CommDTO">
+insert into board(writer,email,subject,reg_date,ref,re_step,re_level,content,ip,readcount) 
+values(#{writer},#{email},#{subject},#{reg_date},#{ref},#{re_step},#{re_level},#{content},#{ip},0)
+</insert>
+<!-- /인서트 -->
+
+<!-- 컨텐트 -->
+<select id="commContent" resultType="CommDTO" parameterType="int">
+select * from board where num=#{num}
+</select>
+<update id="commReadcountPlus" parameterType="int">
+update board set readcount=readcount+1 where num=#{num}
+</update>
+ <!-- /컨텐트 -->
+ 
+<!-- 업데이트 --> 
+<update id="commUpdate" parameterType="CommDTO">
+update board set subject=#{subject}, content=#{content} where num=#{num}
+</update>
+<!-- /업데이트 -->
+
+<!-- 딜리트 -->
+<delete id="commDelete" parameterType="int">
+delete from board where num=#{num}
+</delete>
+<!-- /딜리트 --> 
+
+<select id="isNull" resultType="boolean">
+select num from board where num is null
+</select>
+ 
+ 
+ 
+</mapper>

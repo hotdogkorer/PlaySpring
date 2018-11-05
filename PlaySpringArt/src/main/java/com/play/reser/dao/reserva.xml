@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reserva">
+   <insert id="insertReserva">
+  insert into reservation_info(product_id ,num ,res_name,res_tel,res_email,res_date,res_count,res_price,sitnum)
+			values(#{product_id},#{num},#{res_name},#{res_tel},#{res_email},now(),#{res_count},#{res_price},#{sitnum})
+   
+   </insert>
+   <select id="getMember" parameterType="String" resultType="MemberDTO">
+    select * from member where email=#{email}
+   </select>
+   <select id="getReserInfo" parameterType="String" resultType="ReservaDTO">
+    SELECT A.*,B.product_name as productname FROM reservation_info A ,product_info B where A.product_id=B.product_id and A.res_email=#{email}
+   </select>
+   
+   <delete id="reserDel" parameterType="String" >
+   	 delete from reservation_info where res_num=#{num}
+   </delete>
+   
+   
+</mapper>

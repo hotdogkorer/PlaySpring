@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+<!-- 메인(리스트)페이지 -->
+ <select id="notiMain_count" resultType="int">select count(*) from notice</select>
+ 
+<select id="notiMain_nosearch" parameterType="NoticeDTO" resultType="NoticeDTO">
+select * from notice order by num desc limit #{start},#{end}
+</select>
+ 
+ <select id="notiMain_search" parameterType="NoticeDTO" resultType="NoticeDTO">
+select * from notice
+ <where>
+ <if test="search=='subject_content'">
+ subject like CONCAT('%',#{searchtext},'%') or content like CONCAT('%',#{searchtext},'%')
+ </if>
+ <if test="search=='subject' || search=='writer'"> 
+ ${search} like CONCAT('%',#{searchtext},'%')
+ </if>
+ </where>
+ order by num desc limit #{start},#{end}
+ </select>
+<!-- /메인(리스트)페이지 -->
+
+<select id="notiMaxNum" resultType="int">
+select max(num) from notice
+</select>
+
+<insert id="notiInsert" parameterType="NoticeDTO">
+insert into notice(writer,email,subject,reg_date,content,readcount) values(#{writer},#{email},#{subject},#{reg_date},#{content},0)
+</insert>
+
+<update id="readCountPlus" parameterType="int">
+update notice set readcount=readcount+1 where num=#{num}
+</update>
+
+<select id="noticeContent" parameterType="int" resultType="NoticeDTO">
+select * from notice where num=#{num}
+</select>
+
+<update id="noticeUpdate" parameterType="NoticeDTO">
+update notice set subject=#{subject}, content=#{content} where num=#{num}
+</update>
+
+<delete id="noticeDelete" parameterType="int">
+delete from notice where num=#{num}
+</delete>
+
+</mapper>

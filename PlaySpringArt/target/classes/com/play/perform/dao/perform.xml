@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="perform">
+   <select id="getProduct" resultType="ProductDTO" >
+   select A.*,B.file_name as filename  from product_info A, file_info B where A.product_Id=B.product_Id order by product_id desc
+   </select>
+   <select id="getProductInfo" parameterType="String"     resultType="ProductDTO">
+      select a.*,B.file_name as filename,B.fileinfo_name as fileinfoname  from product_info A, file_info B where A.product_Id=B.product_Id and A.product_Id=#{product_id}
+   </select>
+   
+   <select id="checksitnum" parameterType="String" resultType="String">
+   select sitnum from reservation_info where product_id=#{product_id}
+   </select>   
+   
+   <select id="getsitnum" resultType="String">
+     select  sitnum from product_num
+   </select>
+   
+   <insert id="insertProduct" parameterType="ProductDTO">
+      insert into product_info(opening_hours,place_name ,place_addr,
+			tel, pro_desc, pro_content,price ,product_name,pro_day)
+			values(#{opening_hours},#{place_name},#{place_addr},#{tel},#{pro_desc},#{pro_content},#{price},#{product_name},#{pro_day})
+   </insert>
+   
+    <select id="getProductId" resultType="int">
+      select max(product_id) from product_info
+    </select>   
+    
+    <insert id="insertFileInfo" parameterType="FileInfoDTO">
+      insert into file_info(product_id ,file_name ,fileinfo_name)
+			 values(#{product_id},#{file_name},#{fileinfo_name})
+    </insert>
+    
+    <update id="updateProduct" parameterType="ProductDTO">
+    	update product_info set  opening_hours=#{opening_hours} ,place_name =#{place_name},  place_addr=#{place_addr},
+                 	tel =#{tel},pro_desc=#{pro_desc}, pro_content=#{pro_content}, price =#{price},product_name=#{product_name},
+                 	pro_day=#{pro_day} where product_id=#{product_id}
+    </update>
+    
+    <update id="updateFileInfo" parameterType="FileInfoDTO"  >
+    	update  file_info set file_name=#{file_name}, fileinfo_name=#{fileinfo_name}
+			where product_id=#{product_id}
+    </update>
+    <delete id="performdelete" parameterType="String">
+      delete  from product_info  where product_id=#{product_id}
+    </delete>
+    
+    <delete id="filedelete" parameterType="String">
+       delete from file_info  where product_id=#{product_id}
+    </delete>
+    
+    
+
+</mapper>

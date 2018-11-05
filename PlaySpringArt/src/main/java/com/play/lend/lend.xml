@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lend">
+<select id="selectMonth" parameterType="String" resultType="Month11DTO">
+select * from month10 where date=#{date} order by start
+</select>
+
+<update id="monUpdate" parameterType="Month11DTO">
+update month10 set bool="예약완료" where date=#{date} and start=#{start}
+</update>
+
+<delete id="monDelete" parameterType="Month11DTO">
+delete from month10 where date=#{date} and start=#{start}
+</delete>
+
+<insert id="monInsert" parameterType="Month11DTO">
+insert into month10(date,start,end,name,bool) value(#{date},#{start},#{end},#{name},'예약대기')
+</insert>
+
+</mapper>

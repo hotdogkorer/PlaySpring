@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="main">
+ <select id="mainList" resultType="MainDTO">
+    select A.*,B.file_name as filename  from product_info A, file_info B where A.product_Id=B.product_Id order by product_id
+ </select>
+ 
+ <select id="recentlyMain" resultType="MainDTO">
+  select * from product_info where pro_day > DATE_SUB(NOW(),INTERVAL 1 day) order by pro_day asc limit 1
+ </select>
+ 
+ 
+ 
+ 
+</mapper>
