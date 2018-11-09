@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="css/swiper.min.css">
 
 <!-- Styles -->
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="resources/style.css">
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 

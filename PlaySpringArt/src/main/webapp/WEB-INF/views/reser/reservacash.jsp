@@ -34,7 +34,7 @@
     </div>
  <div class="main-content">
         <div class="container">
-          <form role="form" method="post" action="<%=request.getContextPath()%>/reservationPro.do">
+          <form role="form" method="post" action="reservationPro.do">
 	          <input type="hidden" name="email" value="${email}"> 
 	          <input type="hidden" name="sit"     value="${sit}">
 	          <input type="hidden" name="count" value="${count}">
@@ -58,7 +58,7 @@
 	          </table>
 	          <center>
 	          <input type="submit" value="예약하기" class="btn btn-primary">
-	           <a href="/Playbu/perform.do" class="btn btn-primary">다른공연 예매하기</a>
+	           <a href="perform.do" class="btn btn-primary">다른공연 예매하기</a>
 	          </center>
            </form>
         </div>

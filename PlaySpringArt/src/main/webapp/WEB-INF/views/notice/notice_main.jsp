@@ -59,7 +59,7 @@
 						</tr>
 
 						<c:set var="number" value="${pgList.number}" />
-						그래서 넘버가 몇인데? ${number}
+					
 						<c:forEach var="article" items="${articleList}">
 						
 							<tr height="30" onmouseover="this.style.backgroundColor='white'"

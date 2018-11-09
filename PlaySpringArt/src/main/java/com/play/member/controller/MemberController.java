@@ -27,9 +27,12 @@ public class MemberController {
 	 MemberDAOImpl member;
 	
 	 @RequestMapping(value="/login.do",method=RequestMethod.GET)
-	 public String login() {
-		 
-		 
+	 public String login(HttpServletRequest request) {
+		 String referrer = request.getHeader("Referer");
+		   if(referrer !=null) {
+		    request.getSession().setAttribute("prevPage", referrer);
+		    System.out.println("로그인시 이동할페이지=>"+referrer);
+		   }
 		 return "login";
 	 }
 	
@@ -40,6 +43,7 @@ public class MemberController {
 		 HttpSession session =request.getSession(true);
 		 System.out.println("로그인 처리");
 		 System.out.println("email=>"+email);
+		 String page= (String)request.getSession().getAttribute("prevPage");
 		 //System.out.println("password=>"+passwd);
 		 MemberDTO mdto = new MemberDTO();
 		 mdto.setEmail(email);
@@ -51,8 +55,11 @@ public class MemberController {
         	 mav.setViewName("loginErr");
         	 System.out.println("로그인 실패 ");
          }else {
+        	 
         	 System.out.println("로그인 성공");
         	 session.setAttribute("email", email);	
+        	 session.setAttribute("page", page);
+        	 System.out.println("이동할 페이지"+page);
         	 mav.setViewName("loginPro"); 
          }
 		 return mav;

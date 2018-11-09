@@ -70,7 +70,7 @@ public class PerformController {
 		ModelAndView mav = new ModelAndView();
 		MultipartRequest multi = null;
 		int maxSize = 1024 * 1024 * 50;
-		String uploadPath="C:/webtest/4.java/javastudy/PlaySpringArt/src/main/webapp/resources/upload";
+		String uploadPath="C:/Users/kitcoop/git/playstring/PlaySpringArt/src/main/webapp/resources/upload";
 		System.out.println("절대경로 "+uploadPath);
 		
         ProductDTO proDTO = new ProductDTO(); 
@@ -212,7 +212,7 @@ public class PerformController {
 		
     	MultipartRequest multi = null;
 		int maxSize = 1024 * 1024 * 50;
-		String uploadPath="C:/webtest/4.java/javastudy/PlaySpringArt/src/main/webapp/resources/upload";
+		String uploadPath="C:/Users/kitcoop/git/playstring/PlaySpringArt/src/main/webapp/resources/upload";
 		//System.out.println("절대경로 "+uploadPath);
 		
         ProductDTO proDTO = new ProductDTO(); 

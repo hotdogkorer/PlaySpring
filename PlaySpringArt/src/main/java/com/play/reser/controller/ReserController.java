@@ -90,10 +90,12 @@ public class ReserController {
 		String sit = request.getParameter("sit");
 		String count =request.getParameter("count");
 		String pronum=request.getParameter("pronum");
-		System.out.println("pronum=>"+pronum);
+		ProductDTO pdto =null;
+		if(pronum !=null && sit !=null && count !=null && pronum !=null) {
+			System.out.println("pronum=>"+pronum);
 		//String price =(String)request.getAttribute("price");
 	//	ProductDAO pDao = new ProductDAO();
-		ProductDTO pdto = performdao.getProductInfo(pronum);
+			 pdto = performdao.getProductInfo(pronum);
 		
 		//System.out.println("가격"+price);
 		String[] sitStr = sit.split("[,]");
@@ -109,9 +111,16 @@ public class ReserController {
 		mav.addObject("email", email);
 		mav.addObject("product", pdto);
 		mav.addObject("pronum", pronum);
+		System.out.println("====reservacash.do==========");
+		System.out.println("sit=>"+sit);
+		System.out.println("email=>"+email);
+		System.out.println("count=>"+count);
+		System.out.println("pronum=>"+pronum);
+		System.out.println("product=>"+pdto);
+		
 		//request.setAttribute("pronum", pronum);
 		//String url="/reser/reservacash.jsp";
-		
+		}
 		return mav;
 	}
 	@RequestMapping(value="/reservationPro.do")
@@ -122,49 +131,50 @@ public class ReserController {
         String count=request.getParameter("count");
         String pronum=request.getParameter("pronum");
         String price =request.getParameter("price");
-        System.out.println("+++++ \"/reservationPro.do+++++++");
-        System.out.println("email" +email);
-        System.out.println("sit"+sit);
-        System.out.println("count"+count);
-        System.out.println("pronum"+pronum);
-        System.out.println("pronum"+price);
-        MemberDTO mem = reservadao.getMember(email);
-        ReservaDTO rdto = new ReservaDTO();
-        String[] sitStr = sit.split("[,]");
-        int res_count=Integer.parseInt(count);
-        int res_price = Integer.parseInt(price);
-        int proid=Integer.parseInt(pronum);
-        
-        rdto.setProduct_id(proid);
-        rdto.setNum(mem.getNum());
-        rdto.setRes_email(email);
-        rdto.setRes_tel(mem.getPhonenum());
-        rdto.setRes_name(mem.getName());
-        rdto.setRes_count(res_count);
-        rdto.setRes_price(res_price);
-        
-        rdto.setProduct_id(proid);
-        rdto.setNum(mem.getNum());
-        rdto.setRes_email(email);
-        rdto.setRes_tel(mem.getPhonenum());
-        rdto.setRes_name(mem.getName());
-        rdto.setRes_count(res_count);
-        rdto.setRes_price(res_price);
-        
-        for(int i=0 ;i<sitStr.length; i++) {
-			System.out.println("선택한좌석"+sitStr[i]);
-			rdto.setSitnum(sitStr[i]);
-			 reservadao.insertReserva(rdto);
-     //			rdao.insertReserva(rdto);	
-		}
-        mav.addObject("count", count);
-        mav.addObject("price", price);
-        mav.addObject("sit",sit);
-        request.setAttribute("count", count);
-        request.setAttribute("price", price);
-		request.setAttribute("sit", sit);
-        
-        
+        if(email !=null && sit !=null && count !=null &&  pronum !=null && price !=null ) {
+	        System.out.println("+++++ \"/reservationPro.do+++++++");
+	        System.out.println("email" +email);
+	        System.out.println("sit"+sit);
+	        System.out.println("count"+count);
+	        System.out.println("pronum"+pronum);
+	        System.out.println("pronum"+price);
+	        MemberDTO mem = reservadao.getMember(email);
+	        ReservaDTO rdto = new ReservaDTO();
+	        String[] sitStr = sit.split("[,]");
+	        int res_count=Integer.parseInt(count);
+	        int res_price = Integer.parseInt(price);
+	        int proid=Integer.parseInt(pronum);
+	        
+	        rdto.setProduct_id(proid);
+	        rdto.setNum(mem.getNum());
+	        rdto.setRes_email(email);
+	        rdto.setRes_tel(mem.getPhonenum());
+	        rdto.setRes_name(mem.getName());
+	        rdto.setRes_count(res_count);
+	        rdto.setRes_price(res_price);
+	        
+	        rdto.setProduct_id(proid);
+	        rdto.setNum(mem.getNum());
+	        rdto.setRes_email(email);
+	        rdto.setRes_tel(mem.getPhonenum());
+	        rdto.setRes_name(mem.getName());
+	        rdto.setRes_count(res_count);
+	        rdto.setRes_price(res_price);
+	        
+	        for(int i=0 ;i<sitStr.length; i++) {
+				System.out.println("선택한좌석"+sitStr[i]);
+				rdto.setSitnum(sitStr[i]);
+				 reservadao.insertReserva(rdto);
+	     //			rdao.insertReserva(rdto);	
+			}
+	        mav.addObject("count", count);
+	        mav.addObject("price", price);
+	        mav.addObject("sit",sit);
+	        request.setAttribute("count", count);
+	        request.setAttribute("price", price);
+			request.setAttribute("sit", sit);
+	        
+        }   
         
 		mav.setViewName("/reser/reservationconfrm");
 		return mav;

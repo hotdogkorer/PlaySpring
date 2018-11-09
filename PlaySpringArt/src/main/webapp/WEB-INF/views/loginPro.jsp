@@ -8,6 +8,7 @@
 	<%-- <%
 	response.sendRedirect(request.getHeader("referer"));
 	%>  --%>
-     <meta http-equiv="Refresh" content="0;url=main.do">    
- 
+	<meta http-equiv="Refresh" content="0;url=${sessionScope.page}">    
+<!--      <meta http-equiv="Refresh" content="0;url=main.do">    
+  -->
  
