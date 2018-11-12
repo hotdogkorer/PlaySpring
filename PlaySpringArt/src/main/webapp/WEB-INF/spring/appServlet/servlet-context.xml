@@ -10,16 +10,15 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
-    <context:annotation-config/>
+	<annotation-driven /> 
+    <context:annotation-config/> 
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
     <resources mapping="/css/**" location="/resources/css/" /> 
 	<resources mapping="/images/**" location="/resources/images/" /> 
 	<resources mapping="/js/**" location="/resources/js/" /> 
-	<resources mapping="/resources/**" location="/resources/" /> 
 	<resources mapping="/lend/**" location="/resources/lend/" />
-
+    <resources mapping="/resources/**" location="/resources/" /> 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -55,7 +54,6 @@
 	<beans:bean id="maindao" class="com.play.main.dao.MaInDaoImpl"/>
 	
 	<beans:bean id="memberdao" class="com.play.member.dao.MemberDAOImpl"/>
- <!--     <beans:bean id="memberdto" class="com.play.member.dao.MemberDTO"/>	 -->
    	<beans:bean id="performdao" class="com.play.perform.dao.PerformDAOImpl"/> 
 	 <beans:bean id="reservadao" class="com.play.reser.dao.ReservaDAOImpl"/> 
 	 

@@ -1,9 +1,8 @@
 package com.play.playSpringArt;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+
+import java.util.*;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.play.main.dao.MaInDaoImpl;
-import com.play.main.dao.MainDAO;
+
 import com.play.main.dao.MainDTO;
 
 /**
@@ -32,7 +31,7 @@ public class MainController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/" ,method=RequestMethod.GET)
 	public String home( Model model) {
 		System.out.println("/ 메인페이지요청");
        List<MainDTO> mlist= maindao.mainList();

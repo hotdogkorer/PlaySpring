@@ -29,7 +29,7 @@ public class MemberController {
 	 @RequestMapping(value="/login.do",method=RequestMethod.GET)
 	 public String login(HttpServletRequest request) {
 		 String referrer = request.getHeader("Referer");
-		   if(referrer !=null) {
+		   if(referrer !=null && referrer.indexOf("memberInfo.do")== -1 &&  referrer.indexOf("login.do")== -1  ) {
 		    request.getSession().setAttribute("prevPage", referrer);
 		    System.out.println("로그인시 이동할페이지=>"+referrer);
 		   }
@@ -58,6 +58,9 @@ public class MemberController {
         	 
         	 System.out.println("로그인 성공");
         	 session.setAttribute("email", email);	
+        	 if(page ==null) {
+        		  page="main.do";
+        	 }
         	 session.setAttribute("page", page);
         	 System.out.println("이동할 페이지"+page);
         	 mav.setViewName("loginPro"); 
