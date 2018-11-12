@@ -7,7 +7,7 @@
 <c:if test="${sessionScope.email== null }">
    <script type="text/javascript">
 		alert('로그인 후 이용가능합니다.');
-		location.href="/Playbu/login.do";
+		location.href="<%=request.getContextPath()%>/login.do";
 	</script>
 </c:if>   
  
@@ -35,7 +35,7 @@
  <div class="main-content">
         <div class="container">
           <form role="form" method="post" action="<%=request.getContextPath()%>/main.do">
-	          <table class="table" style="color:black; border:1px solid black; text-align:center" >
+	          <table class="table" style="color:black; text-align:center" >
 	              <thead>
 		            <tr>
 		               <td>에약자이메일</td>

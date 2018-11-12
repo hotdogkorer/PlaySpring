@@ -46,7 +46,7 @@
                                         Phone
                                     </div><!-- entry-title -->
                                     <div class="entry-content">
-                                        +45 677 8993000 223
+                                        010-2596-6830
                                     </div><!-- entry-content -->
                                 </div><!-- phone-number -->
                             </div><!-- contact-phone -->
@@ -63,7 +63,7 @@
                                         E-mail
                                     </div><!-- entry-title -->
                                     <div class="entry-content">
-                                        office@template.com
+                                        animuel0@daum.net
                                     </div><!-- entry-content -->
                                 </div><!-- phone-number -->
                             </div><!-- contact-phone -->
@@ -80,8 +80,8 @@
                                         Address
                                     </div><!-- entry-title -->
                                     <div class="entry-content">
-                                        Main Str. no 45-46, b3, 56832,<br>
-                                        Los Angeles, CA
+                                        서울 동작구 사당2동 245-12<br>
+                                        극장, 공간
                                     </div><!-- entry-content -->
                                 </div><!-- phone-number -->
                             </div><!-- contact-phone -->
@@ -89,16 +89,10 @@
                     </div><!-- row -->
                 </div>
             </div><!-- contact-details -->
-
-            <div class="get-in-touch">
-                <div class="entry-header">
-                    <div class="entry-title">
-                        <p>JUST THE BEST</p>
-                        <h2>오시는길 </h2>
-                    </div><!-- entry-title -->
-                </div><!-- entry-header -->
-
-            </div><!-- newsletter-subscribe -->
+	<div style="height: 20px">
+	
+	</div>
+            
         </div><!-- main-content -->
     </div><!-- container -->
 <%@ include file="footer.jsp"%>

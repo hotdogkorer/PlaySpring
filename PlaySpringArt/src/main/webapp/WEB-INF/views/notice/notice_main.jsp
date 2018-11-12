@@ -32,7 +32,7 @@
 	<div class="main-content">
 		<div class="container">
 			<div class="col-md-2" style="color:black">
-				<%@ include file="../table_col2.jsp"%>
+				<%@ include file="../comm/comm_menu.jsp"%>
 			</div>
 
 			<div class="col-md-10" style="color:black">
@@ -59,7 +59,7 @@
 						</tr>
 
 						<c:set var="number" value="${pgList.number}" />
-					
+						
 						<c:forEach var="article" items="${articleList}">
 						
 							<tr height="30" onmouseover="this.style.backgroundColor='white'"

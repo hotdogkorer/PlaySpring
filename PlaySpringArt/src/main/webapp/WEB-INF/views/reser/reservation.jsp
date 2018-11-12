@@ -127,7 +127,7 @@
                         <div class="ticket-row flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
                             <div class="ticket-type flex flex-column flex-lg-row align-items-lg-center">
                                 <h3 class="entry-title">티켓예매</h3>
-                                <span class="mt-2 mt-lg-0">일반석</span>
+                                <span class="mt-2 mt-lg-0">관람석</span>
                                 <div class="ticket-price mt-3">
                                     ${product.price}원
                                 </div><!-- ticket-price -->

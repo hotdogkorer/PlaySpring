@@ -47,7 +47,7 @@ function writeSave(){
 	<div class="main-content">
 		<div class="container">
 			<div class="col-md-2" style="color:black">
-				<%@ include file="../table_col2.jsp"%>
+				<%@ include file="../comm/comm_menu.jsp"%>
 			</div>
 
 			<div class="col-md-10" style="color:black">

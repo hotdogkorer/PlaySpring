@@ -30,33 +30,15 @@
 			</div>
 
 			<div class="col-md-10"  style="color:black"> 
-			<img src="https://www.artgori.or.kr:40019/images/content01/about_2_3_1.gif" alt="공간소개">
-			<p>
-			<ul class="list_style3">
-						<li>주중 : 10:00 ~ 21:00</li>
-						<li>토요일 : 10:00 ~ 20:00</li>
-						<li>일요일 : 10:00 ~ 16:00</li>
-					</ul>
-			</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			<!-- <img src="https://www.artgori.or.kr:40019/images/content01/about_2_3_1.gif" alt="공간소개"> -->
+		
+			
+			<jsp:include page="mainForm.jsp" flush="false" />
 
 
 			</div>
 		</div>
 	</div>
 </div>
+
 <%@ include file="../footer.jsp"%>

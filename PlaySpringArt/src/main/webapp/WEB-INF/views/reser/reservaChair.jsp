@@ -8,7 +8,7 @@
 <c:if test="${sessionScope.email== null }">
    <script type="text/javascript">
 		alert('로그인 후 이용가능합니다.');
-		location.href="login.do";
+		location.href="<%=request.getContextPath()%>/login.do";
 	</script>
 </c:if>   
  
@@ -21,7 +21,7 @@
  $(function(){
 	   setInterval(function() {
 			  history.go(0);	    	   		
-		}, 30000);
+		}, 15000);
  })
 </script>
 

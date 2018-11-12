@@ -41,9 +41,10 @@ function meminfo(){
 		</div>
 		<!-- .container -->
 	</div>
+	<div class="container">
 <div class="row">
-<div class="col-md-3">
-  <table class="table" border="1">
+<div class="col-md-2">
+  <table class="table">
     <tr>
       <td class="text-center"><a href="<%=request.getContextPath()%>/mypage.do">회원정보</a></td>
     </tr>
@@ -58,13 +59,13 @@ function meminfo(){
     </tr>
    </table>
 </div>
-<div class="col-md-9">
+<div class="col-md-4 col-md-offset-3">
        <form role="form" method="post" action="#" id="info" onsubmit="return meminfo()">
        <input type="hidden" name=info value="info">
        <c:if test="${msg!=null}">
           <p style="color:red;">${msg}</p>
 		</c:if>
-      <table class="table" border="1" style="color:black;">
+      <table class="table" style="color:black;">
            <tr>
            <td>이메일</td>
             <td>${member.email}</td>
@@ -94,7 +95,8 @@ function meminfo(){
             <input type="submit" class="btn btn-primary" value="회원정보수정">
           </center>
         </form>
+        <br><br>
 </div>
-  
+  </div>
 </div>
 <%@ include file="footer.jsp"%>  

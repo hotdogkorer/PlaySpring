@@ -32,7 +32,7 @@
 
 			<div class="col-md-10" style="color:black"> 
 				<ul class="">
-					<li>이용안내</li>
+					<li>소갯말</li>
 					<li>요금안내</li>
 					<li>주의사항</li>
 					<li></li>

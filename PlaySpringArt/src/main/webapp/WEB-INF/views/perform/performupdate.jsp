@@ -21,7 +21,7 @@ document.getElementById('now_date').value =${product.pro_day};
        <input type="hidden" name="update" value="update">
        <input type="hidden" name="productId" value="${product.product_id}">
        
-      <table width="600" border="1" cellspacing="0" cellpadding="0"  bgcolor="#e0ffff" align="center">
+      <table width="600" cellspacing="0" cellpadding="0"  bgcolor="#e0ffff" align="center">
       
    <tr>
     <td align="right" colspan="2" bgcolor="#b0e0e6">

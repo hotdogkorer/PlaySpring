@@ -12,7 +12,7 @@
 <center>
 <h1>공연 업로드 </h1>
    <form action="performPro.do" method="post" enctype="multipart/form-data">
-      <table width="600" border="1" cellspacing="0" cellpadding="0"  bgcolor="#e0ffff" align="center">
+      <table width="600" cellspacing="0" cellpadding="0"  bgcolor="#e0ffff" align="center">
    <tr>
     <td align="right" colspan="2" bgcolor="#b0e0e6">
 	    <a href="perform.do"> 공연목록</a> 

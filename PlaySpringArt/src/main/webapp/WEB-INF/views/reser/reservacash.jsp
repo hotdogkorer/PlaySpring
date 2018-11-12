@@ -7,7 +7,7 @@
 <c:if test="${sessionScope.email== null }">
    <script type="text/javascript">
 		alert('로그인 후 이용가능합니다.');
-		location.href="/Playbu/login.do";
+		location.href="<%=request.getContextPath()%>/login.do";
 	</script>
 </c:if>   
  
@@ -34,13 +34,13 @@
     </div>
  <div class="main-content">
         <div class="container">
-          <form role="form" method="post" action="reservationPro.do">
+          <form role="form" method="post" action="<%=request.getContextPath()%>/reservationPro.do">
 	          <input type="hidden" name="email" value="${email}"> 
 	          <input type="hidden" name="sit"     value="${sit}">
 	          <input type="hidden" name="count" value="${count}">
 	          <input type="hidden" name="pronum" value="${pronum}">
 	          <input type="hidden" name="price"  value="${product.price}">          
-	          <table class="table" style="color:black; border:1px solid black; text-align:center">
+	          <table class="table" style="color:black; text-align:center">
 	          <thead>
 		            <tr>
 		               <td>에약자이메일</td>
@@ -58,7 +58,7 @@
 	          </table>
 	          <center>
 	          <input type="submit" value="예약하기" class="btn btn-primary">
-	           <a href="perform.do" class="btn btn-primary">다른공연 예매하기</a>
+	           <a href="<%=request.getContextPath()%>/perform.do" class="btn btn-primary">다른공연 예매하기</a>
 	          </center>
            </form>
         </div>

@@ -33,5 +33,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script type='text/javascript' src='js/circle-progress.min.js'></script>
 <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
 <script type='text/javascript' src='js/custom.js'></script> 
+<script src="<%=request.getContextPath()%>/lend_main/js/jquery.counterup.min.js"></script>
+
 </body>
 </html>

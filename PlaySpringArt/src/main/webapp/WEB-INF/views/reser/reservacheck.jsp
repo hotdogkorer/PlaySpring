@@ -24,9 +24,9 @@ function cancell(num){
 	
 } 
 </script>
-	<div class="page-header">
-		<div class="container">
-			<div class="row">
+<div class="page-header">
+	<div class="container">
+		<div class="row">
 				<div class="col-12">
 					<div class="entry-header">
 						<h2 class="entry-title">예매확인</h2>
@@ -44,9 +44,12 @@ function cancell(num){
 		</div>
 		<!-- .container -->
 	</div>
+	
+
+	<div class="container">
 <div class="row">
-<div class="col-md-3">
-  <table class="table" border="1">
+<div class="col-md-2">
+  <table class="table">
     <tr>
       <td class="text-center"><a href="<%=request.getContextPath()%>/mypage.do">회원정보</a></td>
     </tr>
@@ -61,9 +64,9 @@ function cancell(num){
     </tr>
    </table>
 </div>
-<div class="col-md-9">
+<div class="col-md-10">
        
-      <table class="table" border="1" style="color:black;">
+      <table class="table" style="color:black;">
          <tr>
            <td>이름</td>
            <td>이메일</td>
@@ -80,8 +83,35 @@ function cancell(num){
             <td><a href="javascript:cancell(${plist.res_num})" class="btn btn-primary">예매취소 </a></td>
          </tr>
          </c:forEach>
-       </table>  
-</div>
-  
+       </table>
+
+		<%-- <table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">이름</th>
+					<th scope="col">이메일</th>
+					<th scope="col">공연명</th>
+					<th scope="col">좌석위치</th>
+					<th scope="col">예매취소</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach  var="plist"  items="${list}">
+				<tr>
+					<th scope="row">${plist.res_name}</th>
+					<td>${plist.res_email}</td>
+					<td>${plist.productname}</td>
+					<td>${plist.sitnum}</td>
+					<td><a href="javascript:cancell(${plist.res_num})" class="btn btn-primary">예매취소 </a></td>
+				</tr>
+			</c:forEach>
+			</tbody>
+		</table>
+ --%>
+
+
+	</div>
+  </div>
+
 </div>
 <%@ include file="../footer.jsp"%>  

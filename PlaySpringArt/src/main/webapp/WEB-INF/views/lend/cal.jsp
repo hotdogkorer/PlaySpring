@@ -44,7 +44,7 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
        <TITLE>캘린더</TITLE>
        <meta http-equiv="content-type" content="text/html; charset=utf-8">
        <script type="text/javaScript" language="javascript"></script>
-       <style TYPE="text/css">
+              <style TYPE="text/css">
              body {
              scrollbar-face-color: #F6F6F6;
              scrollbar-highlight-color: #bbbbbb;
@@ -56,12 +56,14 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
              margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
              }
              td {font-family: "돋움"; font-size: 9pt; color:#595959;}
-             th {font-family: "돋움"; font-size: 9pt; color:#000000;}
+             th {font-family: "돋움"; font-size: 11pt; color:#000000;}
              select {font-family: "돋움"; font-size: 9pt; color:#595959;}
              .divDotText {
              overflow:hidden;
              text-overflow:ellipsis;
              }
+             
+             
             A:link { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
             A:visited { font-size:9pt; font-family:"돋움";color:#000000; text-decoration:none; }
             A:active { font-size:9pt; font-family:"돋움";color:red; text-decoration:none; }
@@ -70,8 +72,12 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 </HEAD>
 
 <BODY>
-<form name="calendarFrm" id="calendarFrm" action="" method="post">
-<DIV id="content" style="width:100%;">
+
+
+
+
+	<form name="calendarFrm" id="calendarFrm" action="" method="post">
+<DIV id="content" style="width:111%;">
 
 <!--날짜 네비게이션  -->
 <table width="100%" border="0" cellspacing="1" cellpadding="1" id="KOO" bgcolor="#F3F9D7" style="border:1px solid #CED99C">
@@ -84,7 +90,7 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
        <tr>
              <th align="center" >
 					<center>공간 연습실<br>
-					 <%=month+1%>월 예약 현황</center>&nbsp;&nbsp;
+					 11월 예약 현황</center>&nbsp;&nbsp;
              </th>
        </tr>
        </table>
@@ -94,30 +100,30 @@ int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 
 <br>
 
-<table width="100%" border="0" cellspacing="1" cellpadding="1" bgcolor="#FFFFFF">
+<table width="100%" border="0" cellspacing="1" cellpadding="1" bgcolor="#FFFFFF" class="table">
 <THEAD>
-<TR bgcolor="#CECECE">
-       <TD width='1/7' height="35px">
+<TR bgcolor="white">
+       <TH height="35px">
        <DIV align="center"><font color="red">일</font></DIV>
-       </TD>
-       <TD width='1/7' height="35px">
+       </TH>
+       <TH height="35px">
        <DIV align="center">월</DIV>
-       </TD>
-       <TD width='1/7' height="35px">
+       </TH>
+       <TH height="35px">
        <DIV align="center">화</DIV>
-       </TD>
-       <TD width='1/7' height="35px">
+       </TH>
+       <TH height="35px">
        <DIV align="center">수</DIV>
-       </TD>
-       <TD width='1/7' height="35px">
+       </TH>
+       <TH height="35px">
        <DIV align="center">목</DIV>
-       </TD>
-       <TD width='1/7'>
-       <DIV align="center" height="35px">금</DIV>
-       </TD>
-       <TD width='1/7' height="35px">
-       <DIV align="center"><font color="#529dbc">토</font></DIV>
-       </TD>
+       </TH>
+       <TH height="35px">
+       <DIV align="center">금</DIV>
+       </TH>
+       <TH height="35px">
+       <DIV align="center"><font color="blue">토</font></DIV>
+       </TH>
 </TR>
 </THEAD>
 <TBODY>
@@ -143,13 +149,13 @@ for(int index = 1; index <= endDay; index++) {
        sUseDate += Integer.toString(month+1).length() == 1 ? "0" + Integer.toString(month+1) : Integer.toString(month+1);
        sUseDate += Integer.toString(index).length() == 1 ? "0" + Integer.toString(index) : Integer.toString(index);
        int iUseDate = Integer.parseInt(sUseDate);
-       String backColor = "#EFEFEF";
+       String backColor = "white";
        
        if(iUseDate == intToday ) {
-             backColor = "#c9c9c9";
+             backColor = "#e1f8ec";
        }
 
-       out.println("<TD width='1/7%' valign='top' align='left' height='92px' bgcolor='"+backColor+"' nowrap>");
+       out.println("<TD valign='top' align='left' height='92px' bgcolor='"+backColor+"' nowrap>");
        %>
 
        <font color='<%=color%>'>
@@ -176,14 +182,15 @@ for(int index = 1; index <= endDay; index++) {
 					<c:if test="${date!=null}">
 
 					<c:if test="${sessionScope.email=='animuel01@daum.net'}">
-        			${s} ~ ${e}
+        			<span>${s}~${e}
         			<a href="update11.do?date=<%=index%>&start=${s}">${b}</a>
-        			<a href="delete11.do?date=<%=index%>&start=${s}">삭제</a>
+        			<a href="delete11.do?date=<%=index%>&start=${s}">삭제</a></span>
         			<br>
             		</c:if>
             		   		
             		<c:if test="${sessionScope.email!='animuel01@daum.net'}">
-            		${s} ~ ${e} ${b} <br>
+            		<span>${s}~${e} ${b}</span>
+            		<br>
 					</c:if>
 					</c:if>
 					</c:if>
@@ -197,6 +204,7 @@ for(int index = 1; index <= endDay; index++) {
 
 			
 				//기능 제거 
+        		/* out.println("</TD>"); */
         		out.println("</TD>");
 
         		newLine++;

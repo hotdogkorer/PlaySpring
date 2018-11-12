@@ -91,6 +91,11 @@
           <a href="performInsert.do" class="btn btn-primary" role="button">글쓰기</a>
    </p>       
    </c:if>
+   <c:if test="${sessionScope.email== 'animuel01@daum.net'}">
+	<p>
+          <a href="performInsert.do" class="btn btn-primary" role="button">글쓰기</a>
+   </p>       
+   </c:if>
    </center>
   <%-- <nav aria-label="Page navigation">
   <ul class="pagination">

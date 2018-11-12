@@ -34,11 +34,12 @@
 	<div class="main-content">
 		<div class="container">
 			<div class="col-md-2" style="color:black">
-				<%@ include file="../table_col2.jsp"%>
+				<%@ include file="../comm/comm_menu.jsp"%>
 			</div>
 				
 			<div class="col-md-10" style="color:black">
-			<table class="table" width="500" cellspacing="0" cellpadding="0">
+			<jsp:include page="contentForm.jsp" />
+			<%-- <table class="table" width="500" cellspacing="0" cellpadding="0">
 			<tr>
 			<td width="375" align="left" colspan="3">${noti.subject}</td>
 			<td width="125" align="left" colspan="2">${noti.reg_date}</td>
@@ -53,7 +54,7 @@
 			<td>${noti.writer}</td>
 			</tr>
 			</table>
-			<pre>${noti.content}</pre>
+			<pre>${noti.content}</pre> --%>
 			</div>
 
 		</div>

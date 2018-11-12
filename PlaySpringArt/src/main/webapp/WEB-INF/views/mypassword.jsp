@@ -58,9 +58,10 @@ function password(){
 		</div>
 		<!-- .container -->
 	</div>
+	<div class="container">
 <div class="row">
-<div class="col-md-3">
-  <table class="table" border="1">
+<div class="col-md-2">
+  <table class="table">
     <tr>
       <td class="text-center"><a href="mypage.do">회원정보</a></td>
     </tr>
@@ -75,13 +76,13 @@ function password(){
     </tr>
    </table>
 </div>
-<div class="col-md-9">
+<div class="col-md-4 col-md-offset-3">
        <form role="form" method="post" id="passwd" >
        <input type="hidden" name=info value="info">
        <c:if test="${msg!=null}">
           <p style="color:red;">${msg}</p>
 		</c:if>
-      <table class="table" border="1" style="color:black;">
+      <table class="table" style="color:black;">
             <tr>
            <td>예전 비밀번호 </td>
             <td><input type="password" id="password"  name="password" ></td>
@@ -98,8 +99,9 @@ function password(){
           <center>
             <a href="javascript:password()" class="btn btn-primary" >비밀번호변경 </a>
           </center>
+          <br><br>
         </form>
 </div>
-  
+  </div>
 </div>
 <%@ include file="footer.jsp"%>  
