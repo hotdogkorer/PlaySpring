@@ -219,7 +219,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4 single-service">
-							<img class="d-block mx-auto img-fluid" src="img/s1.jpg" alt="">
+							<img class="d-block mx-auto img-fluid" src="/lend_main/img/s1.jpg" alt="">
 							<div class="desc">
 								<h2 class="text-uppercase">이용안내</h2>
 								<p>
@@ -236,10 +236,10 @@
 								</p>
 								<a class="text-uppercase view-details" href="#">전문 보기</a>
 							</div>
-							<img class="d-block mx-auto img-fluid" src="img/s2.jpg" alt="">
+							<img class="d-block mx-auto img-fluid" src="/lend_main/img/s2.jpg" alt="">
 						</div>
 						<div class="col-md-4 single-service">
-							<img class="d-block mx-auto img-fluid" src="img/s3.jpg" alt="">
+							<img class="d-block mx-auto img-fluid" src="/lend_main/img/s3.jpg" alt="">
 							<div class="desc">
 								<h2 class="text-uppercase">공지사항</h2>
 								<p>
