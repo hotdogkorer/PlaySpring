@@ -21,7 +21,7 @@
  $(function(){
 	   setInterval(function() {
 			  history.go(0);	    	   		
-		}, 15000);
+		}, 30000);
  })
 </script>
 
