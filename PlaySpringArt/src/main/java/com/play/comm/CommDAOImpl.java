@@ -97,7 +97,7 @@ public class CommDAOImpl extends SqlSessionDaoSupport implements CommDAO {
 	@Override
 	public int commReadcountPluse(int num) {
 		// TODO Auto-generated method stub
-		return  getSqlSession().update("commReadcountPlus");
+		return  getSqlSession().update("commReadcountPlus", num);
 	}
 
 	@Override
