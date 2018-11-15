@@ -54,8 +54,8 @@ public class ReservaDAOImpl extends SqlSessionDaoSupport implements ReservaDAO {
   		int currentPage = Integer.parseInt(pageNum);// 현재페이지
   		// 화면에 출력 ->시작레코드 번호
   		int startRow = (currentPage - 1) * pageSize + 1;
-  		int endRow = currentPage * pageSize;
-  		//int endRow = pageSize;
+  		//int endRow = currentPage * pageSize;
+  		int endRow = pageSize;
   		int number = 0; // 
   		  System.out.println("현재페이지 "+currentPage);
   		  System.out.println("현재 레코드수 (count)"+count);
