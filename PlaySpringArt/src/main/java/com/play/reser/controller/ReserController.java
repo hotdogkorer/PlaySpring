@@ -1,6 +1,7 @@
 package com.play.reser.controller;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -184,17 +185,29 @@ public class ReserController {
 	public ModelAndView reservacheck(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		
-	
+		   String pageNum = request.getParameter("pageNum");
 		   HttpSession session =request.getSession(true);
 			System.out.println("/reservacheck.do 요청");
 			String email=(String) session.getAttribute("email");
 			System.out.println("email=>"+email);
-		
+		    int count=reservadao.resercount(email);
+		    System.out.println("count=>"+ count);
+		    Hashtable<String, Integer> pgList =	reservadao.pageList(pageNum, count);
 			//ReservaDAO rdao = new ReservaDAO();
-			List<ReservaDTO> list = reservadao.getReserInfo(email);
+		    
+		    ReservaDTO  reDTO = new ReservaDTO();
+		    reDTO.setEmail(email);
+		    
+			reDTO.setStart(pgList.get("startRow"));
+			reDTO.setEnd(pgList.get("endRow"));
+		    System.out.println("start"+reDTO.getStart() );
+		    System.out.println("end"+reDTO.getEnd());
+	
+			List<ReservaDTO> list = reservadao.getReserInfo(reDTO);
 			
 			//System.out.println("예약수"+list.size());
 			mav.addObject("list", list);
+			mav.addObject("pgList",pgList);
 			mav.setViewName("/reser/reservacheck");
 		    // request.setAttribute("list", list);
 			

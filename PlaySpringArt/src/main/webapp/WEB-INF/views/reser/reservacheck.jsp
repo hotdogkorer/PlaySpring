@@ -84,31 +84,36 @@ function cancell(num){
          </tr>
          </c:forEach>
        </table>
+         	<center>
+					<c:if test="${pgList.startPage>pgList.blockSize}">
+						<a
+							href="<%=request.getContextPath() %>/reservacheck.do?pageNum=${pgList.startPage-pgList.blockSize}">
+							[이전] </a>
+					</c:if>
 
-		<%-- <table class="table">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">이름</th>
-					<th scope="col">이메일</th>
-					<th scope="col">공연명</th>
-					<th scope="col">좌석위치</th>
-					<th scope="col">예매취소</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach  var="plist"  items="${list}">
-				<tr>
-					<th scope="row">${plist.res_name}</th>
-					<td>${plist.res_email}</td>
-					<td>${plist.productname}</td>
-					<td>${plist.sitnum}</td>
-					<td><a href="javascript:cancell(${plist.res_num})" class="btn btn-primary">예매취소 </a></td>
-				</tr>
-			</c:forEach>
-			</tbody>
-		</table>
- --%>
+					<c:forEach var="i" begin="${pgList.startPage}"
+						end="${pgList.endPage}">
+						<a
+							href="<%=request.getContextPath() %>/reservacheck.do?pageNum=${i}">
+							<c:if test="${pgList.currentPage==i}">
+								<font color="blue"><b>[${i}]</b></font>
+							</c:if> <c:if test="${pgList.currentPage!=i}">
+								[${i}]
+							</c:if>
+						</a>
+					</c:forEach>
 
+					<c:if test="${pgList.endPage<pgList.pageCount}">
+						<a
+							href="<%=request.getContextPath() %>/reservacheck.do?pageNum=${pgList.startPage+pgList.blockSize}">
+							[다음]</a>
+					</c:if>
+
+					<p>			
+						
+					</form>
+				</center>
+	
 
 	</div>
   </div>

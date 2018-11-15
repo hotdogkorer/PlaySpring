@@ -15,8 +15,30 @@ public class ReservaDTO {
 	private int res_price;
 	private String sitnum;
 	private String productname;
+	private String email;
+	private int start=0;
+	private int end=0;
 	
 	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getStart() {
+		return start;
+	}
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public int getEnd() {
+		return end;
+	}
+	public void setEnd(int end) {
+		this.end = end;
+	}
 	
 	
 	public String getProductname() {

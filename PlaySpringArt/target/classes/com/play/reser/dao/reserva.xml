@@ -14,7 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </select>
    <select id="getReserInfo" parameterType="String" resultType="ReservaDTO">
     SELECT A.*,B.product_name as productname FROM reservation_info A ,product_info B where A.product_id=B.product_id and A.res_email=#{email}
+    limit ${start} , ${end}
    </select>
+   <select id="getReserInfoCount" parameterType="String" resultType="Integer">
+   SELECT count(*) FROM reservation_info A ,product_info B where A.product_id=B.product_id and A.res_email=#{email}
+   </select>
+   
    
    <delete id="reserDel" parameterType="String" >
    	 delete from reservation_info where res_num=#{num}
