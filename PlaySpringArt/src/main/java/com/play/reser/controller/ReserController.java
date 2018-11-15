@@ -197,7 +197,7 @@ public class ReserController {
 		    
 		    ReservaDTO  reDTO = new ReservaDTO();
 		    reDTO.setEmail(email);    
-			reDTO.setStart(pgList.get("startRow"));
+			reDTO.setStart(pgList.get("startRow")-1);
 			reDTO.setEnd(pgList.get("endRow"));
 			System.out.println("pageNum=>"+pageNum);
 		    System.out.println("start=>"+reDTO.getStart() );
