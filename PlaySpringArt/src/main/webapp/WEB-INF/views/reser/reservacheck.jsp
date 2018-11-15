@@ -84,7 +84,35 @@ function cancell(num){
          </tr>
          </c:forEach>
        </table>
-         	<center>
+        
+    <center>
+  <nav aria-label="Page navigation">
+  <ul class="pagination">
+  <c:if test="${pgList.startPage > pgList.blockSize}">
+    <li class="page-item"><a class="page-link" href="<%=request.getContextPath() %>/reservacheck.do?pageNum=${pgList.startPage-pgList.blockSize}">[이전]</a></li>   
+ </c:if>
+ 
+ <c:forEach var="i"  begin="${pgList.startPage}" end="${pgList.endPage}">
+    <li class="page-item"> <a class="page-link"href="<%=request.getContextPath() %>/reservacheck.do?pageNum=${i}">
+        <c:if test="${pgList.currentPage==i}"> 
+             <font color="red"><b>${i}</b></font>
+         </c:if>
+         <c:if test="${pgList.currentPage!=i}"> 
+                 ${i}
+         </c:if>
+     </a></li>
+ </c:forEach>
+ 
+ <c:if test="${pgList.endPage < pgList.pageCount}">
+   <li class="page-item">  <a  class="page-link" href="<%=request.getContextPath() %>/reservacheck.do?pageNum=${pgList.startPage+pgList.blockSize}">[다음]</a>   </li>
+ </c:if>
+  </ul>
+  </nav>
+  </center>	
+       
+         <%-- 	<center>
+         	<ul class="pagination">
+    				<li class="page-item disabled">
 					<c:if test="${pgList.startPage>pgList.blockSize}">
 						<a
 							href="<%=request.getContextPath() %>/reservacheck.do?pageNum=${pgList.startPage-pgList.blockSize}">
@@ -112,7 +140,9 @@ function cancell(num){
 					<p>			
 						
 					</form>
-				</center>
+					</li>
+					</ul>
+				</center> --%>
 	
 
 	</div>

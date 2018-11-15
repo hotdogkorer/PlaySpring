@@ -196,12 +196,12 @@ public class ReserController {
 			//ReservaDAO rdao = new ReservaDAO();
 		    
 		    ReservaDTO  reDTO = new ReservaDTO();
-		    reDTO.setEmail(email);
-		    
+		    reDTO.setEmail(email);    
 			reDTO.setStart(pgList.get("startRow"));
 			reDTO.setEnd(pgList.get("endRow"));
-		    System.out.println("start"+reDTO.getStart() );
-		    System.out.println("end"+reDTO.getEnd());
+			System.out.println("pageNum=>"+pageNum);
+		    System.out.println("start=>"+reDTO.getStart() );
+		    System.out.println("end=>"+reDTO.getEnd());
 	
 			List<ReservaDTO> list = reservadao.getReserInfo(reDTO);
 			
